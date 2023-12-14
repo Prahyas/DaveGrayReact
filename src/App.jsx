@@ -5,11 +5,11 @@ import Header from "./Components/Header";
 
 function App() {
   return (
-    <>
+    <div className="flex justify-center flex-col items-center">
       <Header />
       <Content />
       <Footer />
-    </>
+    </div>
   );
 }
 
