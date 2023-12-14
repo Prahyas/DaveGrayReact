@@ -1,36 +1,20 @@
+import { useState } from "react";
+
 const Content = () => {
-  const handleClick = () => {
-    alert("Button Clicked");
-  };
+  const [userName, setuserName] = useState("");
 
-  const handleClick2 = (name) => {
-    alert(`Display my name : ${name}`);
-  };
-
-  const handleClick3 = (e) => {
-    alert(`This is an event : ${e.target.innerText}`);
+  const displayName = () => {
+    let temp = prompt("Enter your name");
+    setuserName(temp);
   };
 
   return (
     <main className="space-x-2">
-      <button className="border" onClick={handleClick}>
+      <button className="border" onClick={displayName}>
         {" "}
-        Click Me
+        Show username
       </button>
-
-      <button
-        className="border"
-        onClick={() => {
-          handleClick2("Prayash");
-        }}
-      >
-        {" "}
-        Click Me 2{" "}
-      </button>
-      <button className="border" onClick={(e) => handleClick3(e)}>
-        {" "}
-        Click Me 3
-      </button>
+      <p>This is your username: {userName}</p>
     </main>
   );
 };
