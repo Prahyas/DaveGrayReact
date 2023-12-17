@@ -1,26 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef } from "react";
 
-const AddItem = ({ addItem }) => {
-  const [item, setitem] = useState("");
-
-  const handleInput = (e) => {
-    setitem(e.target.value);
-  };
-
+const AddItem = ({ addItemInput, setaddItemInput, addItem }) => {
+  const inputRef = useRef();
   return (
-    <div>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault(),
+          addItem(addItemInput),
+          setaddItemInput(""),
+          inputRef.current.focus();
+      }}
+      className="flex gap-3"
+    >
       <input
+        autoFocus
+        ref={inputRef}
         className="border p-1"
         type="text"
-        name="item"
-        id="item"
-        value={item}
-        onChange={(e) => handleInput(e)}
+        name="addItemInput"
+        id="addItemInput"
+        value={addItemInput}
+        onChange={(e) => setaddItemInput(e.target.value)}
       />
-      <button onClick={() => addItem(item)} className="border p-1">
+      <button type="submit" className="border p-1">
         Add
       </button>
-    </div>
+    </form>
   );
 };
 
