@@ -6,6 +6,9 @@ import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import SearchItem from "./Components/SearchItem";
 import axios from "axios";
+import { Routes, Route } from "react-router-dom";
+import About from "./Components/About";
+import Contact from "./Components/Contact";
 
 function App() {
   const [groceryList, setgroceryList] = useState(
@@ -38,8 +41,8 @@ function App() {
       item.id === id ? { ...item, completed: !item.completed } : item
     );
     const updatedItem = newList.find((item) => item.id == id);
-
-    await axios.put(`${API_URL}/${id}`, updatedItem);
+    console.log(updatedItem);
+    const response = await axios.put(`${API_URL}/${id}`, updatedItem);
 
     setgroceryList(newList);
   };
@@ -96,7 +99,10 @@ function App() {
           deleteItem={deleteItem}
         />
       )}
-
+      <Routes>
+        <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
+      </Routes>
       <Footer />
     </div>
   );
