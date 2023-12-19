@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./App.css";
+import "./App.scss";
 import AddItem from "./Components/AddItem";
 import Content from "./Components/Content";
 import Footer from "./Components/Footer";
@@ -79,6 +79,10 @@ function App() {
   return (
     <div className="flex justify-center flex-col items-center space-y-5">
       <Header />
+      <div>
+        <p>Just tring scss</p>
+        <button>Click Me</button>
+      </div>
       <AddItem
         addItemInput={addItemInput}
         setaddItemInput={setaddItemInput}

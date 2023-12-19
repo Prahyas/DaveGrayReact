@@ -1,0 +1,17 @@
+$bg-color: red;
+
+div {
+  background-color: papayawhip;
+  width: 500px;
+  height: 500px;
+  p {
+    color: $bg-color;
+  }
+  button {
+    border: 1px solid green;
+    padding: 2px;
+    &:hover {
+      border: 1px solid blue;
+    }
+  }
+}
