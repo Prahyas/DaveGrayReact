@@ -14,7 +14,7 @@ const About = () => {
   return (
     <div className="flex gap-5">
       <button onClick={() => dispatch(increment())}>+</button>
-      <button onClick={() => dispatch(incrementByAmt(5))}>+5</button>
+      <button onClick={() => dispatch(incrementByAmt(5))}>Increase by 5</button>
       <span>Count : {data}</span>
       <button onClick={() => dispatch(decrement())}>-</button>
     </div>
